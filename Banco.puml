@@ -1,0 +1,25 @@
+@startuml
+/' Casos de usos do sistema banco'/
+left to right direction
+
+actor Cliente as c
+
+package Profissional {
+
+  actor Atendente as at
+  actor Segurança as se
+  actor Gerente as ge
+
+}
+package Banco {
+
+  
+usecase "Caixa eletronico" as UC1
+ usecase "Atendimento ao cliente" as UC2
+c <--> UC1
+c -- UC2
+se --> Banco
+ge --> Banco
+ge -- UC2
+at -- UC2
+@enduml
