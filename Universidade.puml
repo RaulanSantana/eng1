@@ -1,0 +1,59 @@
+@startuml
+/' Casos de usos do sistema universidade'/
+left to right direction
+
+
+
+  
+  package {
+
+  actor Coordenador as coo
+  actor Reitor as rei
+  actor Faxineiro as fax
+  actor Financeiro as fin
+  actor Vigilante as vig
+  }
+  package {
+  actor Funcionario as fun
+  actor Professor as prof
+  actor Aluno as al
+  }
+
+  usecase "Ministrar aula" as UC1
+  usecase "Orientar matricula" as UC2
+  usecase "Administrar curso" as UC3
+  usecase "Administrar universidade" as UC4
+  usecase "Representar universidade" as UC5
+
+  usecase "Assistir aula" as UC6
+  usecase "Prestar serviço" as UC7
+  usecase "Atender universidade" as UC8
+  usecase "Gerenciar receitas e despesas" as UC9
+  usecase Pagar as UC10
+  usecase Receber as UC11
+  usecase "Pagar juros de atraso" as UC12
+      
+  
+
+prof -- UC1
+prof -- UC11
+coo -- UC2
+coo -- UC3
+coo --> prof
+rei --UC4
+rei -- UC5
+rei --> prof
+al -- UC6
+al -- UC10
+(UC12) .> (UC10) : <<extend>>
+(UC6) .> (UC1) : <<include>>
+fun -- UC7
+fun -- UC11
+fax --> fun
+vig --> fun
+UC8 --> UC7
+UC10 --> UC9
+UC11 --> UC9
+fin -- UC9
+fin --> fun
+@enduml
