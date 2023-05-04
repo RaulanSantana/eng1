@@ -1,0 +1,48 @@
+@startuml
+/' delicias gourmet'/
+left to right direction
+
+
+
+  
+
+
+  actor "Gerente de compras" as gc
+  actor "Surpevisor de estoque" as se
+  actor "Coordenador de produção" as cp
+  actor "Lider de produção" as lp
+  actor "Analista de qualidade" as aq
+
+
+
+
+  usecase "Comprar materiais" as UC1
+  usecase "Gerenciar materiais" as UC2
+  usecase "Organizar materiais" as UC3
+  usecase "Garantir processo de fabricação" as UC4
+  usecase "Otimizar materiais" as UC5
+  usecase "Monitorar produção" as UC6
+  
+  
+  
+
+
+
+
+
+
+gc -- UC1
+se -- UC2
+UC2 --> UC3
+gc --> se 
+cp -- UC4
+lp -- UC5
+cp -- UC5
+aq -- UC6
+
+
+/'(UC12) .> (UC10) : <<extend>>
+(UC6) .> (UC1) : <<include>>'/
+
+
+@enduml
